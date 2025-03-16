@@ -1,0 +1,14 @@
+const mongoose = require("mongoose");
+
+const UserSchema = new mongoose.Schema({
+    name: String,
+    email: { type: String, unique: true },
+    password: String,
+    whatsappNumber: String,
+    referralCode: String,
+    referredBy: String,
+    isAdmin: { type: Boolean, default: false },
+    premiumAccess: { type: Boolean, default: false }
+});
+
+module.exports = mongoose.model("User", UserSchema);
